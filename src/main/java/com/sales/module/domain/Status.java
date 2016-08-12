@@ -1,15 +1,12 @@
 package com.sales.module.domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -53,11 +50,6 @@ public class Status implements Serializable{
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	private DateTime lastUpdatedTime;
 
-	@OneToMany( fetch = FetchType.LAZY, mappedBy="status")
-	private List<Status> status;
-
-
-
 	/**
 	 * @return the statusId
 	 */
@@ -86,19 +78,6 @@ public class Status implements Serializable{
 		this.description = description;
 	}
 
-	/**
-	 * @return the status
-	 */
-	public List<Status> getStatus() {
-		return status;
-	}
-
-	/**
-	 * @param status the status to set
-	 */
-	public void setStatus(List<Status> status) {
-		this.status = status;
-	}
 
 	/**
 	 * @return the createdDate

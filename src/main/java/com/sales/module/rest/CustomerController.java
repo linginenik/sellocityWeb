@@ -40,7 +40,7 @@ public class CustomerController  extends AbstractRestController{
     @ResponseBody
     public SalesPlay addSalesPlayData(@RequestParam("file") final MultipartFile productImage,@RequestParam("data") final String info) throws JsonParseException, JsonMappingException, IOException {
     	ObjectMapper mapper = new ObjectMapper();
-    
+    	System.out.println("Values:"+System.getProperty("catalina.base"));
     	CustomerInfo infoData  = mapper.readValue(info,CustomerInfo.class);
     	File uploads = new File("/Users/qzdbxb/projects/uploads/Dell/"+productImage.getOriginalFilename());
     	FileUtils.writeByteArrayToFile(uploads, productImage.getBytes());

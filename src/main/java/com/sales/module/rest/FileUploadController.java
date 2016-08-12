@@ -4,7 +4,6 @@ import java.sql.Blob;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -15,14 +14,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.sales.module.dao.CustomerMainDAO;
 import com.sales.module.domain.FileUploadResponse;
 
 @Controller
 public class FileUploadController extends AbstractRestController {
 
-	@Autowired
-	private CustomerMainDAO customerDAO;
+//	@Autowired
+//	private CustomerMainDAO customerDAO;
 
 	private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
 

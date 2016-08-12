@@ -29,8 +29,9 @@ public abstract class SelloCityHibernateDao<T> implements SelloCityDao<T> {
   }
 
   @Transactional(readOnly = false)
-  public void persist(T entity) {
-    getSession().saveOrUpdate(entity);
+  public T persist(T entity) {
+    getSession().save(entity);
+    return entity;
   }
   
   @Transactional(readOnly = false)

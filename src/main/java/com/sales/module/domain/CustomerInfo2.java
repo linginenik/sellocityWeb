@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CustomerInfo implements Serializable{
+public class CustomerInfo2 implements Serializable{
 
 	/**
 	 * 
@@ -26,62 +26,93 @@ public class CustomerInfo implements Serializable{
 	private String customerClientContact;
 	private String customerClientEmail;
 
-	private String salesPlayName;
-
+	private String painPoint1;
+	private String painPoint2;
+	private String painPoint3;
+	private String painPoint4;
 	/**
 	 * @return the clientName
 	 */
 	public String getClientName() {
 		return clientName;
 	}
-
 	/**
 	 * @param clientName the clientName to set
 	 */
 	public void setClientName(String clientName) {
 		this.clientName = clientName;
 	}
-
 	/**
 	 * @return the customerClientContact
 	 */
 	public String getCustomerClientContact() {
 		return customerClientContact;
 	}
-
 	/**
 	 * @param customerClientContact the customerClientContact to set
 	 */
 	public void setCustomerClientContact(String customerClientContact) {
 		this.customerClientContact = customerClientContact;
 	}
-
 	/**
 	 * @return the customerClientEmail
 	 */
 	public String getCustomerClientEmail() {
 		return customerClientEmail;
 	}
-
 	/**
 	 * @param customerClientEmail the customerClientEmail to set
 	 */
 	public void setCustomerClientEmail(String customerClientEmail) {
 		this.customerClientEmail = customerClientEmail;
 	}
-
 	/**
-	 * @return the salesPlayName
+	 * @return the painPoint1
 	 */
-	public String getSalesPlayName() {
-		return salesPlayName;
+	public String getPainPoint1() {
+		return painPoint1;
 	}
-
 	/**
-	 * @param salesPlayName the salesPlayName to set
+	 * @param painPoint1 the painPoint1 to set
 	 */
-	public void setSalesPlayName(String salesPlayName) {
-		this.salesPlayName = salesPlayName;
+	public void setPainPoint1(String painPoint1) {
+		this.painPoint1 = painPoint1;
+	}
+	/**
+	 * @return the painPoint2
+	 */
+	public String getPainPoint2() {
+		return painPoint2;
+	}
+	/**
+	 * @param painPoint2 the painPoint2 to set
+	 */
+	public void setPainPoint2(String painPoint2) {
+		this.painPoint2 = painPoint2;
+	}
+	/**
+	 * @return the painPoint3
+	 */
+	public String getPainPoint3() {
+		return painPoint3;
+	}
+	/**
+	 * @param painPoint3 the painPoint3 to set
+	 */
+	public void setPainPoint3(String painPoint3) {
+		this.painPoint3 = painPoint3;
+	}
+	/**
+	 * @return the painPoint4
+	 */
+	public String getPainPoint4() {
+		return painPoint4;
+	}
+	/**
+	 * @param painPoint4 the painPoint4 to set
+	 */
+	public void setPainPoint4(String painPoint4) {
+		this.painPoint4 = painPoint4;
 	}
 
 

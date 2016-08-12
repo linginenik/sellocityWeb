@@ -45,16 +45,10 @@ tracker.config(['$stateProvider','$routeProvider', '$provide','$httpProvider', f
 	  
 $stateProvider
      .state('home', {
-        url: "", // root route
-        resolve: {
-        	inputData: function ($state) {
-        			return "";
-        	}        	
-        
-        },     
+        url: "",
         views: {
             "uiview": {
-                templateUrl: 'resources/partials/sales-play-tab1.html',
+                templateUrl: 'resources/partials/sales-play.html',
                 controller: 'SalesPlayController'
             }
         }
@@ -79,42 +73,7 @@ $stateProvider
             }
         }
     })     
-    $stateProvider
-    .state('newIncident', {
-       url: "/incident", // root route
-       views: {
-           "uiview": {
-               templateUrl: 'resources/partials/incident.html',
-               controller: 'IncidentController'
-           }
-       }
-    }) 
-   $stateProvider
-    .state('incidentsearch', {
-       url: "/incidentsearch", // root route
-       views: {
-           "uiview": {
-               templateUrl: 'resources/partials/incident-search-form.html',
-               controller: 'IncidentSearchController'
-           }
-       }
-    })    
-    $stateProvider
-    .state('incident', {
-       url: "/incident/{id}", // root route
-       resolve:{
-       	inputData: function ($state) {
-   			return $state.current.searchParams;
-       	}, 
-      loadedData:incidentResolver,
-       },       
-       views: {
-           "uiview": {
-               templateUrl: 'resources/partials/incident.html',
-               controller: 'IncidentController'
-           }
-       }
-    });
+ 
    }]);
 var incidentResolver = ['$stateParams','IncidentService', function ($stateParams, IncidentService) {
 	

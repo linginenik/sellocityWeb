@@ -17,19 +17,11 @@ tracker.factory("SalesPlayService", function($http,$filter){
 		getBaseUrl : function() {
 			return baseUrl;
 		},
-	    loadIncident : function(id) {
-    		var url = baseUrl + 'incident/'+ id + '/?_=' + Math.random();
-				return $http.get(url).then(this.successHandler, this.errorHandler);
-	    },
-	    
-	    searchIncident : function(id) {
-    		var url = baseUrl + 'searchIncident/'+ id + '/?_=' + Math.random();
-				return $http.get(url).then(this.successHandler, this.errorHandler);
-	    },		
+		
 	    addSalesPlay : function(salesPlayData,clientLogo){
 	    	var fd = new FormData();
 	        fd.append('file', clientLogo);
-	        console.log("DATA.."+salesPlayData);
+
 	        fd.append("data", JSON.stringify(salesPlayData));
 	        
 	    	var method = 'POST';
