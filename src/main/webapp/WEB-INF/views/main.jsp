@@ -53,20 +53,33 @@
                      <li>Logged in as: 
                          Admin
                      </li>
-                   
-
+                       <li>Logged in as: 
+                         Admin
+                     </li> 
+   				
+                </ul>
+                <ul>
+                 <li>Sales Play: {{salesPlay}}
+                     </li> 
                 </ul>
             </div>
             <div class="banner" data-ng-controller="HomeController">   
-              <div class="title"><h1  align="center">Welcome To Sello City </h1></div>                        
+              <div class="title"><h1  align="center"><a href="#" >Welcome To Sello City </a></h1></div>                        
 
                            
                     
                     <div class="clear"></div>
                 </div>
+              
             </div>
+              
+        </div>
+         <p>you working on Sales Play</p>
+        <div>
+    
         </div>
         <div class="content" data-ng-controller="HomeController">
+        		
                 <div data-ui-view="uiview"></div>
         </div>
        <jsp:include page="includes/exploded/js-includes.jsp"></jsp:include>

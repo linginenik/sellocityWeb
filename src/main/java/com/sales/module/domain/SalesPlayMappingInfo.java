@@ -14,58 +14,17 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CustomerInfo2 implements Serializable{
+public class SalesPlayMappingInfo implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5990354759751443525L;
 
-
-	private String clientName;
-	private String customerClientContact;
-	private String customerClientEmail;
-
 	private String painPoint1;
 	private String painPoint2;
 	private String painPoint3;
 	private String painPoint4;
-	/**
-	 * @return the clientName
-	 */
-	public String getClientName() {
-		return clientName;
-	}
-	/**
-	 * @param clientName the clientName to set
-	 */
-	public void setClientName(String clientName) {
-		this.clientName = clientName;
-	}
-	/**
-	 * @return the customerClientContact
-	 */
-	public String getCustomerClientContact() {
-		return customerClientContact;
-	}
-	/**
-	 * @param customerClientContact the customerClientContact to set
-	 */
-	public void setCustomerClientContact(String customerClientContact) {
-		this.customerClientContact = customerClientContact;
-	}
-	/**
-	 * @return the customerClientEmail
-	 */
-	public String getCustomerClientEmail() {
-		return customerClientEmail;
-	}
-	/**
-	 * @param customerClientEmail the customerClientEmail to set
-	 */
-	public void setCustomerClientEmail(String customerClientEmail) {
-		this.customerClientEmail = customerClientEmail;
-	}
 	/**
 	 * @return the painPoint1
 	 */
@@ -114,8 +73,7 @@ public class CustomerInfo2 implements Serializable{
 	public void setPainPoint4(String painPoint4) {
 		this.painPoint4 = painPoint4;
 	}
-
-
+	
 
 
 }

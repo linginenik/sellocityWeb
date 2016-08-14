@@ -8,6 +8,9 @@
      
     <script src="resources/js/controllers/HomeController.js"></script>
     <script src="resources/js/controllers/SalesPlayController.js"></script>
+    <script src="resources/js/controllers/PaintPointsController.js"></script>
+    <script src="resources/js/controllers/ProductInfoController.js"></script>
+    
     <script src="resources/js/controllers/SalesPlayUploadController.js"></script>  
     
     <script src="resources/js/controllers/UploadFileController.js"></script>

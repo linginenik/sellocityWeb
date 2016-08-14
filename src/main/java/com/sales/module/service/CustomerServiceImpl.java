@@ -17,6 +17,7 @@ import com.sales.module.domain.Customer;
 import com.sales.module.domain.CustomerInfo;
 import com.sales.module.domain.SalesPlay;
 import com.sales.module.domain.SalesPlayMapping;
+import com.sales.module.domain.SalesPlayMappingInfo;
 import com.sales.module.domain.Status;
 import com.sales.module.domain.User;
 
@@ -44,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
 	SalesPlayDAO<SalesPlay> salesPlayDao;
 	
 	@Autowired
-	SalesPlayMappingDAO<SalesPlayMapping> salesPlayMapping;
+	SalesPlayMappingDAO<SalesPlayMapping> salesPlayMappingDao;
 	
 //	public CustomerProducts add(CustomerProducts product){
 //		return customerDAO.add(product);
@@ -73,15 +74,17 @@ public class CustomerServiceImpl implements CustomerService {
 	}	
 	public SalesPlay createSalesPlay(CustomerInfo customerInfo,String userInfo,String imagePath){
 		
-		List<SalesPlayMapping> salesPlayMappingList = new ArrayList<SalesPlayMapping>();
+		//List<SalesPlayMapping> salesPlayMappingList = new ArrayList<SalesPlayMapping>();
 		Clients clients = new Clients();
-		clients.setCustomer(createCustomer());
+		Customer cust = createCustomer();
+		clients.setCustomer(cust);
 		clients.setLogo(imagePath);
 		clients.setName(customerInfo.getClientName());
 		clients = clientDao.persist(clients);
 
 		
 		SalesPlay salesPlay =new SalesPlay();
+		salesPlay.setCustomer(cust);
 		salesPlay.setUser(createUser());
 		salesPlay.setClients(clients);
 		salesPlay.setClientContactName(customerInfo.getCustomerClientContact());
@@ -118,15 +121,35 @@ public class CustomerServiceImpl implements CustomerService {
 //			salesPlayMappingList.add(mapping);
 //		}
 		//salesPlay.setSalesPlayMapping(salesPlayMappingList);
-		return null;	
-		
-		
-		
-		
-		
-		
+		return salesPlay;	
 		
 	}
-
+	public SalesPlay addSalesPlayMapping(SalesPlayMappingInfo mappingInfo,Integer salesPlayId){
+		
+		SalesPlay salesPlay = salesPlayDao.findBySalesPlayId(salesPlayId);
+		List<SalesPlayMapping> mappingList = new ArrayList<SalesPlayMapping>();
+		if(mappingInfo.getPainPoint1() != null){
+			mappingList.add(createSalesMapping(mappingInfo.getPainPoint1(), salesPlay));
+		}
+		if(mappingInfo.getPainPoint2() != null){
+			mappingList.add(createSalesMapping(mappingInfo.getPainPoint2(), salesPlay));
+		}
+		if(mappingInfo.getPainPoint3() != null){
+			mappingList.add(createSalesMapping(mappingInfo.getPainPoint3(), salesPlay));
+		}
+		if(mappingInfo.getPainPoint4() != null){
+			mappingList.add(createSalesMapping(mappingInfo.getPainPoint4(), salesPlay));
+		}
+		salesPlay.setSalesPlayMapping(mappingList);
+		return salesPlay;
+	}
+	private SalesPlayMapping createSalesMapping(String  paingPoint, SalesPlay salesPlay) {
+		SalesPlayMapping salesPlayMapping  = new SalesPlayMapping();
+		salesPlayMapping.setPainPoint(paingPoint);
+		salesPlayMapping.setSalesPlay(salesPlay);
+		salesPlayMapping.setStatus(salesPlay.getStatus());
+		salesPlayMappingDao.persist(salesPlayMapping);
+		return salesPlayMapping;
+	}
  
 }

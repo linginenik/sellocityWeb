@@ -54,15 +54,24 @@ $stateProvider
         }
     })
 
-    .state('tab2', {
-        url: "/tab2", 
-        
+    .state('addsalesplay', {
+        url: "/addsalesplay/{playId}", 
         views: {
             "uiview": {
-                templateUrl: 'resources/partials/sales-play-tab2.html',
-                controller: 'SalesPlayUploadController'
+                templateUrl: 'resources/partials/sales-play-issues.html',
+                controller: 'PaintPointsController'
             }
         }
+    }) 
+    .state('productinfo', {
+    url: "/productinfo", 
+    
+    views: {
+        "uiview": {
+            templateUrl: 'resources/partials/sales-play-product.html',
+            controller: 'ProductInfoController'
+        }
+    }
     }) 
     .state('successUpload', {
         url: "/uploadFile/success", 
