@@ -5,7 +5,7 @@ tracker.controller('PaintPointsController', ['$scope','$location','$window', '$s
 		
 		$scope.salesPlay =SalesPlayService.getSalesPlayData();
 	    $scope.addPaintPoints = function(customerInfo){
-
+	    	console.log("AAAAsdsad");
 			$scope.savingIndicator = true;
 			SalesPlayService.addPaintPoints(customerInfo,$scope.salesPlay.spId).then(
 					function(response) {

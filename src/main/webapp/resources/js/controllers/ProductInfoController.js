@@ -1,18 +1,20 @@
 tracker.controller('ProductInfoController', ['$scope','$location','$window', '$state','SalesPlayService',
      function($scope,$location, $window, $state,SalesPlayService) {
-	 
-	   $scope.paintPoints;
+	  	//$scope.customerInfo={};
+	  //	$scope.customerProduct={};
+		$scope.customerInfoWrapper={};
+	  	$scope.paintPoints;
 		$scope.errors = [];
 		
 		$scope.salesPlay =SalesPlayService.getSalesPlayData();
 		console.log("sales Map"+$scope.salesPlay.salesPlayMapping);
 		$scope.paintPoints = $scope.salesPlay.salesPlayMapping;
-		
-	    $scope.addProductInfo = function(customerInfo){
-	    	console.log("data"+customerInfo.pain0)
-	    	console.log("data 1"+customerInfo.pain1)
-			$scope.savingIndicator = true;
-			SalesPlayService.addPaintPoints(customerInfo,$scope.salesPlay.spId).then(
+		$scope.customerInfo = new Array($scope.paintPoints.length);
+	    $scope.addProductInfo = function(customerData,mappingId){
+//	    	var test = $scope.customerProduct[0].productInfo;
+//	    	var aa =  $scope.customerInfo[0];
+	    	$scope.savingIndicator = true;
+			SalesPlayService.addProductData(customerData,mappingId).then(
 					function(response) {
 						$scope.savingIndicator = false;
 						$scope.errors = response.errors;

@@ -33,7 +33,12 @@ public abstract class SelloCityHibernateDao<T> implements SelloCityDao<T> {
     getSession().save(entity);
     return entity;
   }
-  
+  @Transactional(readOnly = false)
+  public T update (T entity) {
+    getSession().update(entity);
+    return entity;
+  }
+    
   @Transactional(readOnly = false)
   public void persist(List<T> entityList) {
     for(T entity: entityList) {

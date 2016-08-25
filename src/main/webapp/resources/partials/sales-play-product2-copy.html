@@ -15,9 +15,7 @@
         <li>
           <span> 
                 <label class="control-label" for="productInfo" >Client Pain Point {{$index}} :</label>
-            <input type="text" name="paintPoint" data-ng-model="customerProduct.productInfo" />    
-           
-
+            <input type="text" name="paintPoint" data-ng-model="customerProduct[$index].productInfo" />    
             </span>
         </li>
  	        <li>
@@ -25,23 +23,16 @@
          	 <span> 
                 <label class="control-label" for="painPointImage" >Pain Point Image :</label>
              
-			       <input type="file" data-file-model="customerInfo.painPointImage" >
-			       <input type="file" data-file-model="customerInfo.productImage" >
-			       <input type="file" data-file-model="customerInfo.productSpecs" >
-			       <input type="file" data-file-model="customerInfo.productManuals" >
+			       <input type="file" data-file-model="customerInfo[$index].painPointImage" >
+			       <input type="file" data-file-model="customerInfo[$index].productImage" >
+			       <input type="file" data-file-model="customerInfo[$index].productSpecs" >
+			       <input type="file" data-file-model="customerInfo[$index].productManuals" >
             	</span> 
             </form>
         </li>
     </ul>
-         <button type="button" class="boxBtn"  data-ng-click="addProductInfo(customerInfo,pain.salesPlayKey)">
-
-            <span class="btnIcon icon_sprite icon_save2" ></span>
-
-            <span class="btnText">Save</span>
-
-         </button>    
     </div>
-         <button type="button" class="boxBtn"  data-ng-click="temp()">
+         <button type="button" class="boxBtn"  data-ng-click="addProductInfo()">
 
             <span class="btnIcon icon_sprite icon_save2" ></span>
 

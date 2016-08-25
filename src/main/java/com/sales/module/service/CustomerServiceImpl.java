@@ -151,5 +151,16 @@ public class CustomerServiceImpl implements CustomerService {
 		salesPlayMappingDao.persist(salesPlayMapping);
 		return salesPlayMapping;
 	}
+	private SalesPlayMapping updateProductMapping(String  paingPointURl,String productURL,String specsURL,String manualURL,
+				String productInfo,Long mappingId ) {
+		SalesPlayMapping salesPlayMapping =salesPlayMappingDao.findByID(mappingId);
+
+		salesPlayMapping.setPainPoint(paingPoint);
+		salesPlayMapping.setSalesPlay(salesPlay);
+		salesPlayMapping.setStatus(salesPlay.getStatus());
+		salesPlayMappingDao.persist(salesPlayMapping);
+		return salesPlayMapping;
+	}
+		
  
 }

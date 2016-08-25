@@ -44,19 +44,25 @@ tracker.factory("SalesPlayService", function($http,$filter,$rootScope){
 				}).then(this.successHandler, this.errorHandler);
 			    },
 			    
-			    addProductInfo : function(salesPlayData){
+			    addProductData : function(infoData,mappingId){
 			    	
 			    	var fd = new FormData();
-			        fd.append('file', clientLogo);
-			        fd.append("data", JSON.stringify(salesPlayData));
-			    	var method = 'POST';
-			    	var url = baseUrl + '/selloCityWeb/customer/salesplay';
+			    	//var test=[infoData.painPointImage,infoData.productImage];
+			    	fd.append("data", JSON.stringify(infoData.productInfo));
+		
+			    	fd.append('paintPoint', infoData.painPointImage);
+			    	fd.append('productImage', infoData.productImage);
+			    	fd.append('productSpecs"', infoData.productSpecs);
+			    	fd.append('productManuals', infoData.customerInfo.productManuals);
+
+			    	var method = 'PUT';
+			    	var url = baseUrl + '/selloCityWeb/customer/'+$rootScope.salesPlay+'productData/'+mappingId;
 			    	return $http.post(url, fd, {
 			            transformRequest: angular.identity,
 			            headers: {'Content-Type': undefined}
-			        }).then(this.successHandler, this.errorHandler);		
+			        }).then(this.successHandler, this.errorHandler);	
+			    },
 
-				    },				    
 	};
 	return angular.extend(service, BaseService);
 });

@@ -83,7 +83,7 @@ public class SalesPlay implements Serializable{
 	@Column(name="CLIENT_CONTACT_EMAIL",length=255)
 	private String clientContactEmail;
 
-	@JsonIgnore
+
 	@ManyToOne
 	@JoinColumn(name="CUST_ID")
 	private Customer customer;

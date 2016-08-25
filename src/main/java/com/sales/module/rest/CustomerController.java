@@ -57,6 +57,25 @@ public class CustomerController  extends AbstractRestController{
     	return customerService.addSalesPlayMapping(mappingInfo,playId);
     	
     }
+    @RequestMapping(value = "/customer/{salesPlayName}/productData/{mappingId}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public SalesPlay addPaintPoints1(@PathVariable final String salesPlayName,@PathVariable final Integer mappingId,@RequestParam("paintPoint")  MultipartFile paintPoint,
+    		@RequestParam("productImage")  MultipartFile productImage,@RequestParam("productSpecs")  MultipartFile productSpecs,
+    		@RequestParam("productManuals")  MultipartFile productManuals,@RequestParam("data") final String productInfo) throws IOException  {
+    	String pathName="/Users/qzdbxb/projects/uploads/Dell/"+salesPlayName+"/";
+    	//File uploads = new File(pathName+paintPoint.getOriginalFilename());
+    	FileUtils.writeByteArrayToFile(new File(pathName+paintPoint.getOriginalFilename()), productImage.getBytes());
+    	FileUtils.writeByteArrayToFile(new File(pathName+productImage.getOriginalFilename()), productImage.getBytes());
+    	FileUtils.writeByteArrayToFile(new File(pathName+productSpecs.getOriginalFilename()), productSpecs.getBytes());
+    	FileUtils.writeByteArrayToFile(new File(pathName+productManuals.getOriginalFilename()), productManuals.getBytes());
+    	customerService.addSalesPlayMapping(pathName+paintPoint.getOriginalFilename(),pathName+productImage.getOriginalFilename(),
+    			pathName+productSpecs.getOriginalFilename(),pathName+productManuals.getOriginalFilename(),productInfo,mappingId);
+    	
+    			playId);
+
+    	return null;
+    	
+    }
     /*
     @RequestMapping(value = "/customer/{id}", method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
     public Customer geCustomer(@PathVariable final int id) {
